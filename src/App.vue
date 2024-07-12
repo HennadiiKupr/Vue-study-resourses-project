@@ -1,18 +1,18 @@
 <template>
   <ul>
-    <ResourceItem 
-      v-for="resource in storeResourses" 
-      :title="resource.title" 
-      :description="resource.description"
-      :link="resource.link">
-    </ResourceItem>
+    <LearningResource v-for="res in storeResourses" :key="res.id" :title="res.title" :description="res.description"
+      :link="res.link">
+    </LearningResource>
   </ul>
 </template>
 
 <script>
-import ResourceItem from './components/ResourceItem.vue'
+import LearningResource from './components/learning-resources/LearningResource.vue';
 
 export default {
+  components: {
+    LearningResource,
+  },
   data() {
     return {
       storeResourses: [
@@ -31,7 +31,4 @@ export default {
       ]
     }
   },
-  components: {
-    ResourceItem,
-  }
 }</script>
